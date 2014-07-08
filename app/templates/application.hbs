@@ -1,0 +1,64 @@
+<div id="wrapper">
+  <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Mis Facturas</a>
+    </div>
+    <!-- /.navbar-header -->
+
+    <ul class="nav navbar-top-links navbar-right">
+    </ul>
+    <!-- /.navbar-top-links -->
+
+  </nav>
+  <!-- /.navbar-static-top -->
+
+  <nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+      <ul class="nav" id="side-menu">
+        {{#if isSignedIn}}
+          <li>
+            <a href='#' {{action "signOut" on='click'}}>
+              <i class="fa fa-user-o fa-fw"></i> Cerrar Sesión
+            </a>
+          </li>
+          <li>
+            {{#link-to 'dashboard'}}
+              <i class="fa  fa-fw"></i> Informes
+            {{/link-to}}
+          </li>
+          <li>
+            {{#link-to 'clients.index' class="clients-link"}}
+              <i class="fa fa-users-o fa-fw"></i> Clientes
+            {{/link-to}}
+          </li>
+          <li>
+            {{#link-to 'clients.new' class="new-client-link"}}
+              <i class="fa fa-user-o fa-fw"></i> Nuevo Client
+            {{/link-to}}
+          </li>
+        {{else}}
+          <li>
+            {{link-to "Sign In" "session"}}
+          </li>
+          <li>
+            {{link-to "Sign Up" "signUp"}}
+          </li>
+        {{/if}}
+      </ul>
+      <!-- /#side-menu -->
+    </div>
+    <!-- /.sidebar-collapse -->
+  </nav>
+  <!-- /.navbar-static-side -->
+
+  <div id="page-wrapper">
+    {{outlet}}
+  </div>
+  <!-- /#page-wrapper -->
+</div>

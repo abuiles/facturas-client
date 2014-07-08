@@ -1,0 +1,13 @@
+<div class="form-group has-success">
+  <label class="control-label">Valor
+    {{input value=amount class="invoice-item-amount form-control"}}
+  </label>
+</div>
+
+<div class="form-group has-success">
+  <label class="control-label">Descripción</label>
+  {{input value=description class="invoice-item-description form-control"}}
+</div>
+
+<button type="submit" {{action save}} class="create btn btn-default">Save</button>
+<button type="submit" {{action cancel}} class="create btn btn-default">Cancel</button>

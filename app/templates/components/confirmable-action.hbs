@@ -1,0 +1,9 @@
+{{#if waitingConfirmation}}
+  <div class="alert alert-warning">
+    <strong>¿Estás Seguro?</strong>
+    <button type="button" class="btn btn-danger" {{action 'confirm'}}>Sí</button>
+    <button type="button" class="btn btn-default" {{action 'cancel' bubble=false}}>No</button>
+  </div>
+{{else}}
+  <a {{action 'doAction' bubble=false}}>{{text}}</a>
+{{/if}}
