@@ -36,8 +36,5 @@
     "grunt-s3": "^0.2.0-alpha.3",
     "originate": "0.1.5",
     "grunt-gitinfo": "^0.1.4"
-  },
-  "dependencies": {
-    "execSync": "^1.0.1-pre"
   }
 }

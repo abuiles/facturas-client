@@ -16,7 +16,7 @@ module.exports = function(grunt) {
         upload: [
           {
             src: 'dist/assets/**/*',
-            dest: '<%= gitinfo.local.branch.current.shortSHA %>/assets/',
+            dest: 'facturas-client/assets/',
             rel: 'dist/assets',
             options: { verify: true }
           }
