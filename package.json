@@ -34,7 +34,9 @@
     "grunt-cli": "~0.1.9",
     "grunt-redis-manifest": "^0.1.3",
     "grunt-s3": "^0.2.0-alpha.3",
-    "originate": "0.1.5",
     "grunt-gitinfo": "^0.1.4"
+  },
+  "dependencies": {
+    "broccoli-gzip": "^0.2.0"
   }
 }
