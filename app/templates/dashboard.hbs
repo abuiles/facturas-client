@@ -9,24 +9,22 @@
   <div class="col-lg-4">
     <div class="panel panel-danger">
       <div class="panel-heading">
-        Cartera
+        Cartera {{format-money balance}}
       </div>
       <div class="panel-body">
-        <h3>{{format-money balance}}</h3>
-      </div>
-      <div class="panel-footer">
+        <canvas class="balance-chart"></canvas>
       </div>
     </div>
   </div>
+</div>
+<div class="row">
   <div class="col-lg-4">
     <div class="panel panel-danger">
       <div class="panel-heading">
         Deudores.
       </div>
-      <div class="panel-body">
-        <h3>{{debtors}}</h3>
-      </div>
       <div class="panel-footer">
+        {{debtors}}
       </div>
     </div>
   </div>

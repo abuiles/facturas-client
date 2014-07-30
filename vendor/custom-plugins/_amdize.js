@@ -16,4 +16,13 @@
       'default': moment
     };
   });
+
+  /* global define chart */
+  define('chart', [], function() {
+    'use strict';
+
+    return {
+      'default': Chart
+    };
+  });
 })();

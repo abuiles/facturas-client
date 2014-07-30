@@ -45,6 +45,13 @@ app.import('vendor/rails-csrf/dist/named-amd/main.js', {
   }
 });
 
+app.import('vendor/chartjs/Chart.js', {
+  exports: {
+    'chart': [
+      'default'
+    ]
+  }
+});
 app.import('vendor/ember-test-helpers/dist/ember-test-helpers.js');
 app.import('vendor/custom-plugins/_amdize.js');
 

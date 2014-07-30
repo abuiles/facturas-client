@@ -1,7 +1,14 @@
-import { request } from 'ic-ajax';
+import Ember from 'ember';
 
 export default Ember.Route.extend({
   model: function() {
-    return request('api/v1/dashboard');
+    return this.store.find('report');
+  },
+  setupController: function(controller) {
+    this._super.apply(this, arguments);
+    var meta = this.store.metadataFor('report');
+
+    controller.set('balance', meta.balance);
+    controller.set('debtors', meta.debtors);
   }
 });
