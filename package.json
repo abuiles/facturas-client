@@ -34,6 +34,7 @@
     "grunt-gitinfo": "^0.1.4"
   },
   "dependencies": {
-    "broccoli-gzip": "^0.2.0"
+    "broccoli-gzip": "^0.2.0",
+    "grunt-redis": "^0.1.1"
   }
 }
