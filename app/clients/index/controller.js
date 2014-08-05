@@ -1,3 +1,5 @@
+import Ember from 'ember';
+
 var ClientsIndex = Ember.ArrayController.extend({
   queryParams: ['sortBy'],
   sortBy: 'lastName',

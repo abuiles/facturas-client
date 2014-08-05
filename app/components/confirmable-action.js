@@ -1,3 +1,5 @@
+import Ember from 'ember';
+
 var ConfirmableAction = Ember.Component.extend({
   setInitialState: function(){
     this.set('waitingConfirmation', false);

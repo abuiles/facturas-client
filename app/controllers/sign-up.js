@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import { request } from 'ic-ajax';
 
 var SignupController = Ember.Controller.extend({

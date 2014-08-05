@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import { formatMoney }  from 'accounting';
 import moment from 'moment';
 
 export default Ember.ArrayController.extend({

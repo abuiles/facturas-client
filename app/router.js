@@ -1,5 +1,9 @@
 import Ember from 'ember';
+
+import Ember from 'ember';
 import 'ember-devise-simple-auth';
+
+import Ember from 'ember';
 
 var Router = Ember.Router.extend({
   location: ClientENV.locationType
