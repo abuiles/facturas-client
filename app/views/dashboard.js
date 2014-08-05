@@ -3,7 +3,11 @@ import Chart from 'chart';
 
 export default Ember.View.extend({
   draw: function() {
-    var ctx=  this.$('.balance-chart')[0].getContext("2d");
-    new Chart(ctx).Line(this.get('controller').get('data'));
+    var ctx, data, options;
+    ctx     = this.$('.balance-chart')[0].getContext("2d");
+    data    = this.get('controller').get('data');
+    options = { 'scaleShowLabels': false };
+
+    new Chart(ctx).Line(data, options);
   }.on('didInsertElement')
 });
