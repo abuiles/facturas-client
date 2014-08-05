@@ -20,7 +20,7 @@ app.import('vendor/custom-plugins/_ember-devise-simple-auth.js', {
   }
 });
 
-app.import('vendor/accounting/accounting.js', {
+app.import('bower_components/accounting/accounting.js', {
   exports: {
     'accounting': ['formatMoney']
   },
@@ -28,7 +28,7 @@ app.import('vendor/accounting/accounting.js', {
   name: 'accounting'
 });
 
-app.import('vendor/momentjs/min/moment-with-langs.min.js', {
+app.import('bower_components/momentjs/min/moment-with-langs.min.js', {
   exports: {
     'moment': [
       'default'
@@ -36,7 +36,7 @@ app.import('vendor/momentjs/min/moment-with-langs.min.js', {
   }
 });
 
-app.import('vendor/rails-csrf/dist/named-amd/main.js', {
+app.import('bower_components/rails-csrf/dist/named-amd/main.js', {
   exports: {
     'rails-csrf': [
       'service',
@@ -45,14 +45,14 @@ app.import('vendor/rails-csrf/dist/named-amd/main.js', {
   }
 });
 
-app.import('vendor/chartjs/Chart.js', {
+app.import('bower_components/chartjs/Chart.js', {
   exports: {
     'chart': [
       'default'
     ]
   }
 });
-app.import('vendor/ember-test-helpers/dist/ember-test-helpers.js');
+app.import('bower_components/ember-test-helpers/dist/ember-test-helpers.js');
 app.import('vendor/custom-plugins/_amdize.js');
 
 module.exports = app.toTree();
