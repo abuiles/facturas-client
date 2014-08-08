@@ -7,17 +7,23 @@
 //   });
 // };
 
-var express    = require('express');
 var bodyParser = require('body-parser');
 var globSync   = require('glob').sync;
-var routes     = globSync('./routes/*.js', { cwd: __dirname }).map(require);
+var mocks      = globSync('./mocks/**/*.js', { cwd: __dirname }).map(require);
+var proxies    = globSync('./proxies/**/*.js', { cwd: __dirname }).map(require);
 
-module.exports = function(emberCLIMiddleware) {
-  var app = express();
-  // app.use(bodyParser());
+module.exports = function(app) {
+  app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({
+    extended: true
+  }));
 
-  routes.forEach(function(route) { route(app); });
-  app.use(emberCLIMiddleware);
+  mocks.forEach(function(route) { route(app)});
 
-  return app;
+  // proxy expects a stream, but express will have turned
+  // the request stream into an object because bodyParser
+  // has run. We have to convert it back to stream:
+  // https://github.com/nodejitsu/node-http-proxy/issues/180
+  app.use(require('connect-restreamer')());
+  proxies.forEach(function(route) { route(app)});
 };

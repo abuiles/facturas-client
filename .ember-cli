@@ -1,6 +1,5 @@
 {
   "port": 4200,
   "host": "0.0.0.0",
-  "environment": "development",
-  "proxy": "http://localhost:3000"
+  "environment": "development"
 }
