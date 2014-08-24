@@ -2,8 +2,8 @@
   "predef": {
     "document": true,
     "window": true,
-    "ClientENV": true,
-    "Ember": true
+    "-Promise": true,
+    "ClientENV": true
   },
   "browser" : true,
   "boss" : true,
