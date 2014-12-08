@@ -36,15 +36,6 @@ app.import('bower_components/momentjs/min/moment-with-langs.min.js', {
   }
 });
 
-app.import('bower_components/rails-csrf/dist/named-amd/main.js', {
-  exports: {
-    'rails-csrf': [
-      'service',
-      'setCsrfUrl'
-    ]
-  }
-});
-
 app.import('bower_components/chartjs/Chart.js', {
   exports: {
     'chart': [
@@ -52,7 +43,6 @@ app.import('bower_components/chartjs/Chart.js', {
     ]
   }
 });
-app.import('bower_components/ember-test-helpers/dist/ember-test-helpers.js');
 app.import('vendor/custom-plugins/_amdize.js');
 
 module.exports = app.toTree();
