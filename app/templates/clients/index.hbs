@@ -17,14 +17,12 @@
           <tr>
             <th>{{link-to "Nombres" (query-params sortBy="firstName")}}</th>
             <th>{{link-to "Apellido" (query-params sortBy="lastName")}}</th>
-            <th>{{link-to "Teléfono" (query-params sortBy="phone")}}</th>
             <th>{{link-to "Deuda" (query-params sortBy="balance")}}</th>
           </tr>
           {{#each filteredClients}}
           <tr class="client-row">
             <td>{{#link-to 'clients.show' this}}{{firstName}}{{/link-to}}</td>
             <td>{{lastName}}</td>
-            <td>{{phone}}</td>
             <td>{{format-money balance}}</td>
           </tr>
           {{/each}}
