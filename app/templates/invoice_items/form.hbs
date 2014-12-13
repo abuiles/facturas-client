@@ -1,13 +1,19 @@
-<div class="form-group has-success">
-  <label class="control-label">Valor
-    {{input value=amount class="invoice-item-amount form-control"}}
-  </label>
+{{#if model.payment}}
+  <h3>Nuevo Abono</h3>
+{{else}}
+  <h3>Nuevo Fiado</h3>
+{{/if}}
+<div class="row">
+  {{input
+    value=model.amount
+    placeholder="Valor"
+    type="number"
+    pattern="\d*"
+    class="invoice-item-amount"
+  }}
+  {{input value=model.description placeholder="Descripción" class="invoice-item-description"}}
 </div>
-
-<div class="form-group has-success">
-  <label class="control-label">Descripción</label>
-  {{input value=description class="invoice-item-description form-control"}}
+<div class="row">
+  <button type="submit" {{action "save"}} class="create button primary">Guardar</button>
+  <button type="submit" {{action "cancel"}} class="create button primary dull">Cancelar</button>
 </div>
-
-<button type="submit" {{action save}} class="create btn btn-default">Save</button>
-<button type="submit" {{action cancel}} class="create btn btn-default">Cancel</button>

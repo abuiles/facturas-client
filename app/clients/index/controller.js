@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 var ClientsIndex = Ember.ArrayController.extend({
   queryParams: ['sortBy'],
-  sortBy: 'lastName',
+  sortBy: 'balance',
   sortProperties: function() {
     return [this.get('sortBy')];
   }.property('sortBy'),
@@ -10,20 +10,31 @@ var ClientsIndex = Ember.ArrayController.extend({
   searchResults: null,
   selected: null,
   searchText: '',
-  filteredClients: function() {
+  doSearch: function() {
     var searchText = this.get('searchText');
+    var results = this.get('arrangedContent');
 
-    if(searchText.length === 0) {
-      return this;
+    if(searchText.length > 0) {
+      var filter = new RegExp(searchText, 'i');
+
+      results = results.filter(function(client) {
+        return !!client.get('fullName').match(filter);
+      });
     }
 
-    var searchResults = this.filter(function(client) {
-      return !!client.get('fullName').match(new RegExp(searchText, 'i'));
-    });
+    return this.set('filteredClients', results);
+  },
+  searchObserver: Ember.observer('searchText', 'this.[]', function() {
+    Ember.run.debounce(this, this.doSearch, 500);
+  }),
+  actions: {
+    sortBy: function(key) {
+      this.set('sortBy', key);
+      this.toggleProperty('sortAscending');
 
-    return searchResults;
-  }.property('searchText', 'this.[]')
-
+      return false;
+    }
+  }
 });
 
 export default ClientsIndex;

@@ -15,7 +15,8 @@
     "qunit": "~1.15.0",
     "accounting": "0.3.2",
     "momentjs": "~2.6.0",
-    "chartjs": "1.0.1-beta.3"
+    "chartjs": "1.0.1-beta.3",
+    "picnic": "https://github.com/picnicss/picnic.git"
   },
   "resolutions": {
     "handlebars": "~2.0.0",

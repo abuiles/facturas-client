@@ -7,7 +7,6 @@ export default Ember.Route.extend({
       payment: true
     });
   },
-
   renderTemplate: function(){
     this.render(
       'invoice-items/new',
@@ -32,12 +31,12 @@ export default Ember.Route.extend({
       model.save().then(function() {
         var client = _this.modelFor('clients.show');
         client.get('invoiceItems').pushObject(model);
-        _this.transitionTo('clients.show', client);
+        _this.transitionTo('invoice_items');
       });
     },
     cancel: function() {
       var _this = this;
-      _this.transitionTo('clients.show', _this.modelFor('clients.show'));
+      _this.transitionTo('invoice_items');
     }
   }
 });

@@ -13,7 +13,7 @@ Router.map(function() {
     this.route('new');
     this.route('edit', {path: ':client_id/edit'});
 
-    this.resource('clients.show', {path: ':client_id'}, function() {
+    this.route('show', {path: ':client_id'}, function() {
       this.resource('invoice_items', function() {
         this.route('payment');
         this.route('new');

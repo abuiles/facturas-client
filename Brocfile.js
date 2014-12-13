@@ -45,4 +45,19 @@ app.import('bower_components/chartjs/Chart.js', {
 });
 app.import('vendor/custom-plugins/_amdize.js');
 
+app.import('vendor/fontello/fontello.css');
+app.import('vendor/fontello/font/fontello.ttf', {
+  destDir: 'assets/fonts'
+});
+app.import('vendor/fontello/font/fontello.eot', {
+  destDir: 'assets/fonts'
+});
+app.import('vendor/fontello/font/fontello.svg', {
+  destDir: 'assets/fonts'
+});
+app.import('vendor/fontello/font/fontello.woff', {
+  destDir: 'assets/fonts'
+});
+app.import('bower_components/picnic/releases/v2.min.css');
+
 module.exports = app.toTree();
