@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model: function() {
-    return this.store.find('invoiceItem');
+    return this.modelFor('clients.show').get('invoiceItems');
   },
   renderTemplate: function(){
     return this.render('invoiceItems/index', {
