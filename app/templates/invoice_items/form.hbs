@@ -1,19 +1,25 @@
-{{#if model.payment}}
-  <h3>Nuevo Abono</h3>
-{{else}}
-  <h3>Nuevo Fiado</h3>
-{{/if}}
-<div class="row">
-  {{input
-    value=model.amount
-    placeholder="Valor"
-    type="number"
-    pattern="\d*"
-    class="invoice-item-amount"
-  }}
-  {{input value=model.description placeholder="Descripción" class="invoice-item-description"}}
-</div>
-<div class="row">
-  <button type="submit" {{action "save"}} class="create button primary">Guardar</button>
-  <button type="submit" {{action "cancel"}} class="create button primary dull">Cancelar</button>
-</div>
+{{#paper-content classNames="md-padding"}}
+  <h1>
+    Nuevo {{#if model.payment }} Abono {{else}} Fiado {{/if}}
+  </h1>
+  <ul class="paper-list-inline">
+    <li>
+      {{paper-text value=model.amount label="Valor" type="number" pattern="\d*"}}
+    </li>
+    <li>
+      {{paper-text value=model.description label="Descripción"}}
+    </li>
+  </ul>
+  <ul class="paper-list-inline">
+    <li>
+      {{#paper-button raised=true classNames="md-primary" action="save"}}
+      Guardar
+      {{/paper-button}}
+    </li>
+    <li>
+      {{#paper-button raised=true noink=true action="cancel"}}
+      Cancelar
+      {{/paper-button}}
+    </li>
+  </ul>
+{{/paper-content}}

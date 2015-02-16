@@ -1,31 +1,36 @@
-<nav>
-  {{link-to "Facturas" "index" class="main"}}
-  <!-- responsive -->
-  <input id="bmenu" class="burgercheck" type="checkbox">
-  <label for="bmenu" class="burgermenu"></label>
-  <!-- /responsive -->
-  <div class="menu">
-    {{#if isSignedIn}}
-      {{#link-to 'dashboard'}}
-      <i class="fa  fa-fw"></i> Informes
-      {{/link-to}}
-      {{#link-to 'clients.index' class="clients-link"}}
-      <i class="fa fa-users-o fa-fw"></i> Clientes
-      {{/link-to}}
-      {{#link-to 'clients.new' class="new-client-link"}}
-      <i class="fa fa-user-o fa-fw"></i> Nuevo Cliente
-      {{/link-to}}
-      <a href='#' {{action "signOut" on='click'}}>
-        <i class="fa fa-user-o fa-fw"></i> Cerrar Sesión
-      </a>
-    {{else}}
-      {{link-to "Sign In" "session"}}
-      {{link-to "Sign Up" "signUp"}}
-    {{/if}}
-  </div>
-</nav>
-<div class="row">
-  <div class="full">
+{{#paper-nav-container open=drawerOpen classNames="ember-app"}}
+  {{#paper-sidenav classNames="md-sidenav-left md-whiteframe-z2" flex-layout="column" flex=true}}
+    {{#paper-toolbar}}
+      <div class="md-toolbar-tools">
+        <div class="logo">
+          <strong>Facturas Al Día</strong>
+        </div>
+      </div>
+    {{/paper-toolbar}}
+
+    {{#paper-content}}
+      <nav class="sidenav">
+        <ul>
+          {{#if session.isAuthenticated}}
+            <li>{{link-to "Informes" "dashboard"}}</li>
+            <li>{{link-to "Clientes" "clients.index"}}</li>
+            <li>{{link-to "Nuevo Cliente" "clients.new"}}</li>
+            <li>
+              <a href="#" {{action "invalidateSession" on="click"}}>
+                Cerrar Sesión
+              </a>
+            </li>
+            {{else}}
+            <li>{{link-to "Sign In" "login"}}</li>
+            <li>{{link-to "Sign Up" "signUp"}}</li>
+          {{/if}}
+        </ul>
+      </nav>
+    {{/paper-content}}
+  {{/paper-sidenav}}
+
+  {{#paper-content flex-layout="column" flex=true}}
     {{outlet}}
-  </div>
-</div>
+  {{/paper-content}}
+
+{{/paper-nav-container}}

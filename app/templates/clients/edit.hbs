@@ -1,3 +1,10 @@
-<h3>Edit</h3>
+{{#paper-toolbar}}
+  <h2 class="md-toolbar-tools">
+    {{#paper-sidenav-toggle class="menu-sidenav-toggle"}}
+      {{paper-icon icon="menu"}}
+    {{/paper-sidenav-toggle}}
+    <span>Editando Cliente</span>
+  </h2>
+{{/paper-toolbar}}
 
-{{partial 'clients/form'}}
+{{partial "clients/form"}}

@@ -1,28 +1,30 @@
-<div class="row">
-  <div class="col-lg-12">
-    <h1 class="page-header">Informes</h1>
-  </div>
-  <!-- /.col-lg-12 -->
-</div>
-<!-- /.row -->
-<div class="row">
-  <div class="col-lg-12">
-    <div class="">
-      <div class="">
-        Cartera {{format-money balance}}
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-lg-4">
-    <div class="">
-      <div class="">
-        Deudores.
-      </div>
-      <div class="panel-footer">
-        {{debtors}}
-      </div>
-    </div>
-  </div>
-</div>
+{{#paper-toolbar}}
+  <h2 class="md-toolbar-tools">
+    {{#paper-sidenav-toggle class="menu-sidenav-toggle"}}
+      {{paper-icon icon="menu"}}
+    {{/paper-sidenav-toggle}}
+    <span>Informes</span>
+  </h2>
+{{/paper-toolbar}}
+
+{{#paper-content classNames="md-padding"}}
+  {{#paper-list}}
+    {{#paper-item}}
+      {{#paper-tile-left}}
+        Cartera
+      {{/paper-tile-left}}
+      {{#paper-tile-content}}
+        {{format-money model.balance}}
+      {{/paper-tile-content}}
+    {{/paper-item}}
+    {{#paper-item}}
+      {{#paper-tile-left}}
+        Deudores
+      {{/paper-tile-left}}
+      {{paper-divider}}
+      {{#paper-tile-content}}
+        {{model.debtors}}
+      {{/paper-tile-content}}
+    {{/paper-item}}
+  {{/paper-list}}
+{{/paper-content}}

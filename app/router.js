@@ -1,6 +1,5 @@
 import Ember from 'ember';
 import config from './config/environment';
-import 'ember-devise-simple-auth';
 
 var Router = Ember.Router.extend({
   location: config.locationType
@@ -22,6 +21,9 @@ Router.map(function() {
       });
     });
   });
+  this.route('login');
+  this.route('session');
+  this.route('error');
 });
 
 export default Router;

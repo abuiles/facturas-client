@@ -1,17 +1,28 @@
-{{input value=searchText class="form-control" placeholder="Busqueda..."}}
-<table class="primary clients-table">
-  <thead>
-    <tr>
-      <th {{action "sortBy" "firstName"}}>Nombres </th>
-      <th {{action "sortBy" "balance"}}>Deuda</th>
-    </tr>
-  </thead>
-  <tbody>
+{{#paper-toolbar}}
+  <h2 class="md-toolbar-tools">
+    {{#paper-sidenav-toggle class="menu-sidenav-toggle"}}
+      {{paper-icon icon="menu"}}
+    {{/paper-sidenav-toggle}}
+    <span>Clientes</span>
+  </h2>
+{{/paper-toolbar}}
+
+{{#paper-content classNames="md-padding"}}
+  {{paper-text label="Buscar" value=searchText}}
+  <ul class="paper-list-inline">
+    <li>Ordenar por</li>
+    <li><a {{action "sortBy" "firstName"}}>Nombres </a></li>
+    <li><a {{action "sortBy" "balance"}}>Deuda</a></li>
+  </ul>
+  {{#paper-list class="clients-list"}}
     {{#each filteredClients as |client|}}
-      <tr class="client-row">
-        <td>{{#link-to 'clients.show' client}}{{client.fullName}}{{/link-to}}</td>
-        <td>{{format-money client.balance}}</td>
-      </tr>
+      {{#paper-item}}
+        {{#paper-tile-content}}
+          {{#link-to "clients.show" client}}{{client.fullName}}{{/link-to}}
+          <h2>{{format-money client.balance}}</h2>
+        {{/paper-tile-content}}
+      {{/paper-item}}
+      {{paper-divider}}
     {{/each}}
-  </tbody>
-</table>
+  {{/paper-list}}
+{{/paper-content}}

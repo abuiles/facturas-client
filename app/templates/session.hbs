@@ -1,7 +1,7 @@
-<div class="row">
-  <form {{action "signIn" on="submit"}} role="form">
-    {{input type="email" placeholder="email" value=email}}
-    {{input type="password" placeholder="Contraseña" value=password}}
-    <button class="btn btn-lg btn-success btn-block">Ingrese</button>
-  </form>
-</div>
+<form {{action 'authenticate' on='submit'}}>
+  <label for="identification">Login</label>
+  {{input value=identification placeholder='Enter Login'}}
+  <label for="password">Password</label>
+  {{input value=password placeholder='Enter Password' type='password'}}
+  <button type="submit">Login</button>
+</form>

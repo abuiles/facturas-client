@@ -1,0 +1,21 @@
+{{#paper-toolbar}}
+  <h2 class="md-toolbar-tools">
+    {{#paper-sidenav-toggle class="menu-sidenav-toggle"}}
+      {{paper-icon icon="menu"}}
+    {{/paper-sidenav-toggle}}
+    <span>Iniciar Sesión</span>
+  </h2>
+{{/paper-toolbar}}
+
+{{#paper-content classNames="md-padding"}}
+  {{paper-text label="E-mail" type="email" value=identification}}
+  {{paper-text label="Password" type="password" value=password}}
+  <p>
+    {{#paper-button
+      classNames="md-primary"
+      noink=true
+      action="authenticate"}}
+      Guardar
+    {{/paper-button}}
+  </p>
+{{/paper-content}}

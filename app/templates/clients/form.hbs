@@ -1,23 +1,26 @@
-<div class="row">
-  <label class="control-label">Nombres
-    {{input value=firstName class="client-first-name form-control"}}
-  </label>
-</div>
-<div class="row">
-  <label class="control-label">Apellido
-    {{input value=lastName class="client-last-name form-control"}}
-  </label>
-</div>
-<div class="row">
-  <label class="control-label">Teléfono
-    {{input value=model.phone class="client-phone form-control"}}
-  </label>
-</div>
-<div class="row">
-  <label class="control-label">Emailil
-    {{input value=model.email class="client-email form-control"}}
-  </label>
-</div>
-
-<button type="submit" {{action "save"}} class="create btn btn-default">Guardar</button>
-<button type="submit" {{action "cancel"}} class="cancel btn btn-default">Cancelar</button>
+{{#paper-content classNames="md-padding"}}
+  <ul class="paper-list-inline">
+    <li>{{paper-text label="Nombres" value=model.firstName}}</li>
+    <li>{{paper-text label="Apellidos" value=model.lastName}}</li>
+    <li>{{paper-text label="Teléfono" type="tel" value=model.phone}}</li>
+    <li>{{paper-text label="E-mail" type="email" value=email}}</li>
+  </ul>
+  <p>
+    {{#paper-button
+      classNames="md-primary"
+      action="save"}}
+      Guardar
+    {{/paper-button}}
+    {{#paper-button
+      action="cancel"
+    }}
+      Cancelar
+    {{/paper-button}}
+  </p>
+  <hr>
+  {{#unless model.isNew}}
+    <p>
+      {{confirmable-action text="Remover" confirmAction="destroyRecord"}}
+    </p>
+  {{/unless}}
+{{/paper-content}}
