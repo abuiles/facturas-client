@@ -14,7 +14,7 @@
         Cartera
       {{/paper-tile-left}}
       {{#paper-tile-content}}
-        {{format-money model.balance}}
+        {{format-money controller.balance}}
       {{/paper-tile-content}}
     {{/paper-item}}
     {{#paper-item}}
@@ -23,7 +23,7 @@
       {{/paper-tile-left}}
       {{paper-divider}}
       {{#paper-tile-content}}
-        {{model.debtors}}
+        {{controller.debtors}}
       {{/paper-tile-content}}
     {{/paper-item}}
   {{/paper-list}}

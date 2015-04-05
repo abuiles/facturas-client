@@ -7,10 +7,10 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     return this.csrf.fetchToken();
   },
   actions: {
-    validSignIn: function() {
+    sessionAuthenticationSucceeded: function() {
       this.transitionTo("dashboard");
     },
-    didSignOut: function() {
+    sessionInvalidationSucceeded: function() {
       this.transitionTo("index");
     },
     willTransition: function() {

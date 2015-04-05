@@ -41,16 +41,4 @@ app.import('bower_components/chartjs/Chart.js', {
 
 app.import('vendor/custom-plugins/_amdize.js');
 
-app.import('vendor/list-view.amd.js', {
-  exports: {
-    'list-view/main': ['default'],
-    'list-view/helper': ['default'],
-    'list-view/list_item_view': ['default'],
-    'list-view/list_item_view_mixin': ['default'],
-    'list-view/list_view': ['default'],
-    'list-view/list_view_helper': ['default'],
-    'list-view/list_view_mixin': ['default']
-  }
-});
-
 module.exports = app.toTree();

@@ -2,7 +2,6 @@ import Ember from 'ember';
 import Resolver from 'ember/resolver';
 import loadInitializers from 'ember/load-initializers';
 import config from './config/environment';
-import { setCsrfUrl } from 'rails-csrf/config';
 
 Ember.MODEL_FACTORY_INJECTIONS = true;
 
@@ -12,12 +11,10 @@ var App = Ember.Application.extend({
   Resolver: Resolver
 });
 
-setCsrfUrl(config.railsCsrf.csrfURL);
 
 // requirejs('list-view/main');
 
 loadInitializers(App, 'client');
-loadInitializers(App, 'rails-csrf');
 
 // Ember.onerror = function(error) {
 //   console.log('There was an error', error);

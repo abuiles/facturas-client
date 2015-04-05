@@ -52,5 +52,14 @@ module.exports = function(environment) {
     authorizer: 'simple-auth-authorizer:devise'
   };
 
+  ENV.contentSecurityPolicy = {
+    'default-src': "'none'",
+    'script-src': "'self'",
+    'font-src': "'self' https://fonts.gstatic.com",
+    'connect-src': "'self'",
+    'img-src': "'self'",
+    'media-src': "'self'"
+  };
+
   return ENV;
 };
